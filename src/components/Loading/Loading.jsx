@@ -1,10 +1,10 @@
 import { PacmanLoader } from 'react-spinners';
-import './loading.css';  // Asegúrate de importar tu archivo CSS
+import './loading.css';
 
 export default function Loading(){
     return(
         <div className="loading-container">
-            <PacmanLoader color="#2D3A4B" size="70" />
+            <PacmanLoader/>
         </div>
     )
 }

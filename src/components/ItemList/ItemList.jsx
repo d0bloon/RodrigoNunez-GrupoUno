@@ -4,17 +4,20 @@ import { useEffect, useState } from "react"
 import Loading from "../Loading/Loading";
 import './itemlist.css';
 
-export default function ItemList(){
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+export default function ItemList({ products: initialProducts }){
+    const [products, setProducts] = useState(initialProducts || []);
+    const [loading, setLoading] = useState(!initialProducts);
 
     useEffect(() => {
-        getProducts().then((data) =>{
-            setProducts(data)
+        if(!initialProducts) {
+            getProducts().then((data) =>{
+                setProducts(data)
+                setLoading(false)
+            });
+        }else{
             setLoading(false)
-        });
-    }, []);
-
+        }
+    }, [initialProducts]);
 
     return(
         <>

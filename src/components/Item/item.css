@@ -18,7 +18,7 @@
     text-transform: uppercase;
 }
 .item-link img {
-    max-width: 100%;
+    max-width: 280px;
     margin-bottom: 10px;
 }
 .item-link img:hover {

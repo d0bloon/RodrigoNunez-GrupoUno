@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown.jsx";
 import { faTags, faFire } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
@@ -11,10 +11,10 @@ const Navbar = () => {
         <nav className="navbar">
             <ul className={`nav-links ${isOpen && "open"}`}>
                 <li className="nav-item">
-                    <Link to='/ofertas' className="nav-link, item-sale"> <FontAwesomeIcon icon={faTags}/> OFERTAS</Link>
+                    <a href="/category/ofertas" className="nav-link, item-sale"> <FontAwesomeIcon icon={faTags}/> OFERTAS</a>
                 </li>
                 <li className="nav-item">
-                    <Link to='/sneakers' className="nav-link">SNEAKERS</Link>
+                    <a href="/category/sneakers" className="nav-link">SNEAKERS</a>
                     <Dropdown items={[
                         {title: 'MARCAS POPULARES', subItems: ['Nike', 'Air Jordan', 'New Balance', 'Adidas', 'ASICS', 'Converse', 'Yeezy']},
                         {title: 'MODELOS MÁS POPULARES', subItems: ['adidas Yeezy Slide', 'Air Jordan 4', 'Air Jordan 11', 'ASICS Gel-1130', 'New Balance 9060', 'Nike Dunk', 'Nike Air Max']},
@@ -23,7 +23,7 @@ const Navbar = () => {
                     ]}/>
                 </li>
                 <li className="nav-item">
-                    <Link to='/hombre' className="nav-link">HOMBRE</Link>
+                    <a href="/category/hombre" className="nav-link">HOMBRE</a>
                     <Dropdown items={[
                         {title: 'SNEAKERS', subItems: ['Nike', 'Air Jordan', 'New Balance', 'Adidas', 'ASICS', 'Converse', 'Yeezy']},
                         {title: 'CALZADO', subItems: ['Birkenstock', 'Crocs', 'Dr. Nartens', 'Gucci', 'Timberland', 'UGG']},
@@ -33,7 +33,7 @@ const Navbar = () => {
                     ]}/>
                 </li>
                 <li className="nav-item">
-                    <Link to='/mujer' className="nav-link">MUJER</Link>
+                    <a href="/category/mujer" className="nav-link">MUJER</a>
                     <Dropdown items={[
                         {title: 'SNEAKERS', subItems: ['Nike', 'Air Jordan', 'New Balance', 'Adidas', 'ASICS', 'Converse', 'Yeezy']},
                         {title: 'CALZADO', subItems: ['Chanel', 'Christian Louboutin', 'Gucci', 'Hermes', 'Prada', 'UGG']},

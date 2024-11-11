@@ -15,6 +15,7 @@ import BagPage from "./components/Bag/Bag.jsx";
 import KidsPage from "./components/Kids/Kids.jsx";
 import ReleasesPage from "./components/Releases/Releases.jsx";
 import ItemDetail from "./components/ItemDetail/ItemDetail.jsx";
+import ProductsCategory from "./components/Category/Category.jsx";
 
 function App() {
     return (
@@ -34,6 +35,7 @@ function App() {
                         <Route path='/user' element={<UserPage/>}/>
                         <Route path='/bag' element={<BagPage/>}/>
                         <Route path='/niños' element={<KidsPage/>}/>
+                        <Route path='/category/:categoryId' element={<ProductsCategory />} />
                         <Route path='/products/:productId' element={<ItemDetail/>} />
                         <Route path='/ultimos_lanzamientos' element={<ReleasesPage/>}/>
                     </Routes>
