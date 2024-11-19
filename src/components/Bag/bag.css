@@ -1,3 +1,46 @@
 .bag {
+    padding: 16px;
+}
+
+.cart-container {
+    margin-top: 16px;
+}
+
+.cart-item {
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+
+.cart-item-img {
+    width: 100px;
+    height: auto;
+    margin-right: 16px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-details h3 {
+    margin: 0;
+}
+
+.cart-item-details p {
+    margin: 4px 0;
+}
+
+.cart-total {
+    margin-top: 16px;
+    text-align: right;
+}
+
+.clear-button {
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 8px;
 }

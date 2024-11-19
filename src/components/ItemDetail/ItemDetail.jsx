@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
+import useBag from "../UseBag/UseBag.jsx";  // Importa tu tienda Zustand
 import './itemdetail.css';
 
 export default function ItemDetail() {
@@ -38,8 +39,8 @@ export default function ItemDetail() {
         }
     };
 
-    // PRECIO TOTAL
-    // const precioTotal = product.price * quantity;
+    // Agregar al carrito usando Zustand
+    const addToCart = useBag(state => state.addToCart);
 
     if (loading) {
         return (
@@ -66,22 +67,34 @@ export default function ItemDetail() {
                         <p className="stock">Stock: {product.stock}</p>
                     </div>
                     <div>
-                    <hr className="divider"/>
+                        <hr className="divider"/>
                         <h3>Tallas disponibles:</h3>
-                        <ul className="sizes-list"> {product.sizes.map((size, index) => (
-                            <li key={index} className="size-item">
-                                <button className="size-button">{size}</button>
-                            </li>))}
+                        <ul className="sizes-list">
+                            {product.sizes.map((size, index) => (
+                                <li key={index} className="size-item">
+                                    <button className="size-button">{size}</button>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <hr className="divider"/>
                     <div className="quantity-controls">
-                        <button onClick={decrementQuantity} className="quantity-button"> -</button>
+                        <button onClick={decrementQuantity} className="quantity-button">-</button>
                         <p className="quantity-display">{quantity}</p>
-                        <button onClick={incrementQuantity} className="quantity-button"> +</button>
+                        <button onClick={incrementQuantity} className="quantity-button">+</button>
                     </div>
-                    <button className="buy-button">Comprar</button>
-                    <button className="bag-button">Agregar a la bolsa</button>
+                    <button
+                        className="buy-button"
+                        onClick={() => addToCart({ ...product, quantity })}
+                    >
+                        Comprar
+                    </button>
+                    <button
+                        className="bag-button"
+                        onClick={() => addToCart({ ...product, quantity })}
+                    >
+                        Agregar a la bolsa
+                    </button>
                 </div>
             </div>
         </div>

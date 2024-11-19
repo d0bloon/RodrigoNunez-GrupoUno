@@ -3,46 +3,88 @@
     flex-direction: column;
     align-items: center;
     margin: 10px;
+    width: 30px;
 }
 
-.item-info{
-    width: 100%;
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: #fff;
+    margin: 16px;
+    width: 250px;
 }
 
-.item-link {
-    font-size: 20px;
-    margin: 15px 0;
-    color: #000000;
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-link {
     text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.item-link img {
-    max-width: 280px;
-    margin-bottom: 10px;
-}
-.item-link img:hover {
-    transform: scale(1.1);
+    color: inherit;
 }
 
-.item-link:hover {
-    color: #D03F30;
+.card-img {
+    width: 250px;
+    height: auto;
 }
 
-.item-price {
-    font-size: 20px;
-    margin-bottom: 20px;
-    font-weight: bold;
+.card-img:hover{
+
 }
-.item-brand {
-    font-size: 18px;
-    font-weight: normal;
+
+.card-info {
+    padding: 16px;
+    text-align: center;
 }
+
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.card-title:hover {
+    text-decoration: underline;
+}
+
+.card-brand {
+    font-size: 1rem;
+    color: #666;
+    margin: 8px 0;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    color: #000;
+    margin: 8px 0;
+}
+
+.card-button {
+    padding: 12px 24px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+}
+
 @media (max-width: 768px) {
-    .item-link {
+    .card-title {
         font-size: 18px;
     }
-    .item-link img {
+    .card{
+        width: 160px;
+        margin: 5px;
+    }
+    .card-img {
         margin: 0;
         width: 160px;
         height: 160px;
