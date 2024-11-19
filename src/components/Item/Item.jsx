@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import useBag from "../UseBag/UseBag.jsx";
+import useBag from "../../UseBag/UseBag.jsx";
 import './item.css';
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +19,7 @@ export default function Item({ id, brand, name, price, img }) {
             <Link to={`/products/${id}`} className="card-link">
                 <img src={img} alt="Imagen Producto" className="card-img"/>
             </Link>
-            <hr className="divider"/>
+            <hr className="card-divider"/>
             <div className="card-info">
                 <Link to={`/products/${id}`} className="card-title">
                     {name}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
-import useBag from "../UseBag/UseBag.jsx";  // Importa tu tienda Zustand
+import useBag from "../../UseBag/UseBag.jsx";  // Importa tu tienda Zustand
 import './itemdetail.css';
 
 export default function ItemDetail() {

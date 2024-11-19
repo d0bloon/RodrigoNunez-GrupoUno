@@ -1,5 +1,5 @@
 import './bag.css';
-import useBag from "../UseBag/UseBag.jsx";
+import useBag from "../../UseBag/UseBag.jsx";
 
 const BagPage = () => {
     const cart = useBag(state => state.cart);
