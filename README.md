@@ -54,15 +54,18 @@ Para utilizar la aplicación, sigue estos pasos:
 4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
 5. Abre un pull request.
 
-## Licencia
+## Licencia de Uso Educativo
 
-Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
+```markdown
+Licencia de Uso Educativo
 
-## Autores
+Copyright (c) 2024 Rodrigo Núñez
 
-- **Rodrigo Núñez** - [GitHub](https://github.com/d0bloon)
+Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de este software y los archivos de documentación asociados (el "Software"), para usar el Software exclusivamente con fines educativos, incluidos proyectos escolares y de investigación. No se permite el uso del Software para fines comerciales, de distribución, de sublicencia, de modificación o de venta sin el permiso explícito por escrito del autor.
 
-## Agradecimientos
+Las condiciones siguientes deben cumplirse:
 
-Agradecimientos a todas las personas y recursos que han contribuido al desarrollo de este proyecto.
+1. El aviso de copyright y este aviso de permiso deben incluirse en todas las copias o partes sustanciales del Software.
+2. El uso del Software debe limitarse exclusivamente a fines educativos y no debe involucrar actividades comerciales o de lucro.
 
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUIDAS PERO NO LIMITADAS A LAS GARANTÍAS DE COMERCIABILIDAD, APTITUD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES DEL COPYRIGHT SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN CONTRACTUAL, EXTRACONTRACTUAL O DE OTRO TIPO, QUE SURJA DE, FUERA DE O EN RELACIÓN CON EL SOFTWARE O EL USO U OTRO TIPO DE ACCIONES EN EL SOFTWARE.
