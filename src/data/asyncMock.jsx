@@ -1,12 +1,12 @@
 export const products = [
     {
         id: 1,
-        brand: 'NIKE',
-        name: 'Nike SB Dunk Low',
-        colorway: 'Photon Dust/Blanco/Vintage Verde',
-        price: 90990,
+        brand: 'ASICS',
+        name: 'Asics GEL-Quantum™ Kinetic',
+        colorway: 'Khaki Beige / Pure Silver',
+        price: 332423,
         stock: 10,
-        img: '/product_01.jpg',
+        img: '/product_1.jpg',
         category: 'zapatillas',
         gender: 'hombre',
         sizes: ['US 9', 'US 9.5', 'US 10', 'US 10.5', 'US 11', 'US 11.5', 'US 12']
@@ -14,59 +14,59 @@ export const products = [
     {
         id: 2,
         brand: 'ADIDAS',
-        name: 'CAMPUS 00S',
-        colorway: 'Verde',
-        price: 94990,
+        name: 'Bad Bunny x Adidas Gazelle (Benito)',
+        colorway: ' Black / White',
+        price: 129990,
         stock: 10,
-        img: '/product_02.jpg',
+        img: '/product_2.jpg',
         category: 'zapatillas',
         gender: 'hombre',
         sizes: ['US 9', 'US 9.5', 'US 10', 'US 10.5', 'US 11', 'US 11.5', 'US 12']
     },
     {
         id: 3,
-        brand: 'NEW BALANCE',
-        name: 'NEW BALANCE MR530SG',
-        colorway: 'Blanco',
-        price: 134990,
+        brand: 'NIKE',
+        name: 'Nike SB Dunk Low "Paisley"',
+        colorway: 'Brown',
+        price: 199000,
         stock: 10,
-        img: '/product_03.jpg',
+        img: '/product_3.jpg',
         category: 'zapatillas',
         gender: 'hombre',
         sizes: ['US 9', 'US 9.5', 'US 10', 'US 10.5', 'US 11', 'US 11.5', 'US 12']
     },
     {
         id: 4,
-        brand: 'LACOSTE',
-        name: 'LACOSTE L003 NEO',
-        colorway: 'Beige',
-        price: 109990,
+        brand: 'NIKE X OFF-WHITE',
+        name: 'Air Jordan 1 Retro High "Off-White - UNC',
+        colorway: 'Blue',
+        price: 2639990,
         stock: 10,
-        img: '/product_04.jpg',
+        img: '/product_4.jpg',
         category: 'zapatillas',
         gender: 'hombre',
         sizes: ['US 9', 'US 9.5', 'US 10', 'US 10.5', 'US 11', 'US 11.5', 'US 12']
     },
     {
         id: 5,
-        brand: 'New Balance',
-        name: 'NEW BALANCE 530',
-        colorway: 'Blanco/Burdeo',
-        price: 84990,
+        brand: 'NIKE',
+        name: 'Air Jordan 3 "White Cement Reimagined"',
+        colorway: 'White / Gray',
+        price: 304832,
         stock: 10,
-        img: '/product_05.jpg',
+        img: '/product_5.jpg',
         category: 'zapatillas',
         gender: 'mujer',
         sizes: ['US 9', 'US 9.5', 'US 10', 'US 10.5', 'US 11', 'US 11.5', 'US 12']
     },
     {
         id: 6,
-        brand: 'NIKE',
-        name: 'Air Jordan 1 Low',
+        brand: 'NEW BALANCE',
+        name: 'Bodega x New Balance 9060 "Age of Discovery"',
         colorway: 'Rosa/Gris/Blanco',
-        price: 106990,
+        price: 242709,
         stock: 10,
-        img: '/product_06.jpg',
+        img: '/product_6.jpg',
         category: 'zapatillas',
         gender: 'mujer',
         sizes: ['US 9', 'US 9.5', 'US 10', 'US 10.5', 'US 11', 'US 11.5', 'US 12']
@@ -95,5 +95,14 @@ export const getProductByCategory = (gender) => {
         setTimeout(() => {
             res(productosFiltrados);
         }, 2000);
+    });
+};
+// asyncMock.jsx
+export const getSizesByProductId = async (id) => {
+    const productoFiltrado = products.find((product) => product.id === parseInt(id));
+    return new Promise((res) => {
+        setTimeout(() => {
+            res(productoFiltrado ? productoFiltrado.sizes : []);
+        }, 1000);
     });
 };

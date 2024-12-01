@@ -1,9 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faBagShopping, faUser, } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom";
-//import Slider from "../Sliders/Sliders.jsx";
 import './header.css';
-// import {Link} from "react-router-dom";
+
 
 const Header = () => {
     return(

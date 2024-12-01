@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
-import useBag from "../../UseBag/UseBag.jsx";  // Importa tu tienda Zustand
+import useBag from "../../UseBag/UseBag.jsx"; // Importa tu tienda Zustand
 import './itemdetail.css';
 
 export default function ItemDetail() {
@@ -25,6 +25,9 @@ export default function ItemDetail() {
 
     // ESTADO PARA LA CANTIDAD
     const [quantity, setQuantity] = useState(1);
+
+    // ESTADO PARA LA TALLA SELECCIONADA
+    const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : null);
 
     // FUNCIONES PARA INCREMENTAR Y DECREMENTAR
     const decrementQuantity = () => {
@@ -72,7 +75,12 @@ export default function ItemDetail() {
                         <ul className="sizes-list">
                             {product.sizes.map((size, index) => (
                                 <li key={index} className="size-item">
-                                    <button className="size-button">{size}</button>
+                                    <button
+                                        className={`size-button ${selectedSize === size ? 'selected' : ''}`}
+                                        onClick={() => setSelectedSize(size)}
+                                    >
+                                        {size}
+                                    </button>
                                 </li>
                             ))}
                         </ul>
@@ -85,13 +93,13 @@ export default function ItemDetail() {
                     </div>
                     <button
                         className="buy-button"
-                        onClick={() => addToCart({ ...product, quantity })}
+                        onClick={() => addToCart({ ...product, quantity, selectedSize })}
                     >
                         Comprar
                     </button>
                     <button
                         className="bag-button"
-                        onClick={() => addToCart({ ...product, quantity })}
+                        onClick={() => addToCart({ ...product, quantity, selectedSize })}
                     >
                         Agregar a la bolsa
                     </button>

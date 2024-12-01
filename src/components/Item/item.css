@@ -3,26 +3,32 @@
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    width: 30px;
+    width: 100%;
 }
 
-.card-divider{
-    border: 1px solid #ddd;
+.card-divider {
+    border: none;
+    margin: 0;
 }
 
 .card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
     background-color: #fff;
     margin: 16px;
-    width: 250px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .card-link {
@@ -31,36 +37,40 @@
 }
 
 .card-img {
-    width: 250px;
+    width: 100%;
     height: auto;
-}
-
-.card-img:hover {
+    display: block;
 }
 
 .card-info {
-    padding: 16px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center; /* Center the content vertically */
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: black;
     text-decoration: none;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 .card-title:hover {
-    text-decoration: underline;
+    color: #c21a01;
 }
 
 .card-brand {
     font-size: 1rem;
-    color: black;
+    color: #555;
     margin: 8px 0;
 }
 
 .card-price {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: #000;
     margin: 8px 0;
 }
@@ -68,29 +78,44 @@
 .card-button {
     padding: 12px 24px;
     cursor: pointer;
-    background-color: lightgray;
-    color: black;
+    background-color: #c21a01;
+    color: white;
     border: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
 }
 
 .card-button:hover {
-    background-color: #c21a01;
-    color: white;
+    background-color: #a31301;
+    transform: translateY(-2px);
 }
 
+/* Estilos responsivos */
 @media (max-width: 768px) {
     .card-title {
-        font-size: 18px;
+        font-size: 1.25rem;
     }
-    .card{
-        width: 160px;
-        margin: 5px;
+
+    .card {
+        max-width: 90%;
+        margin: 10px auto;
     }
+
     .card-img {
-        margin: 0;
-        width: 160px;
-        height: 160px;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .card-info {
+        padding: 16px;
+    }
+
+    .card-button {
+        padding: 8px 16px;
     }
 }
