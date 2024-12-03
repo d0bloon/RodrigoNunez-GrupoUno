@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
 import Banner from "./components/Banner/Banner.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Header from "./components/Header/Header.jsx";
@@ -16,11 +17,22 @@ import KidsPage from "./components/Kids/Kids.jsx";
 import ReleasesPage from "./components/Releases/Releases.jsx";
 import ItemDetail from "./components/ItemDetail/ItemDetail.jsx";
 import ProductsCategory from "./components/Category/Category.jsx";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx";
+import useBag from "./UseBag/useBag";
+import { getCartFromSessionStorage } from './utils/sessionStorage';
 
 function App() {
+    const setCart = useBag(state => state.setCart);
+
+    useEffect(() => {
+        const cart = getCartFromSessionStorage();
+        setCart(cart);
+    }, [setCart]);
+
     return (
         <>
             <BrowserRouter>
+                <ScrollToTop />
                 <Banner/>
                 <Header/>
                 <Navbar/>
@@ -46,4 +58,4 @@ function App() {
     )
 }
 
-export default App
+export default App;

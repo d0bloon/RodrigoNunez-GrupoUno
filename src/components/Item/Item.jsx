@@ -1,18 +1,13 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import useBag from "../../UseBag/UseBag.jsx";
 import './item.css';
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Item({ id, brand, name, price, img }) {
     const formatPrice = (price) => {
         return price.toLocaleString('es-CL');
     };
-
-    const addToCart = useBag(state => state.addToCart);
-
-    const product = { id, brand, name, price, img, quantity: 1 };
 
     return (
         <div className="card">
@@ -26,12 +21,9 @@ export default function Item({ id, brand, name, price, img }) {
                 </Link>
                 <h3 className="card-brand">{brand}</h3>
                 <h3 className="card-price">${formatPrice(price)}</h3>
-                <button
-                    className="card-button"
-                    onClick={() => addToCart({...product})}
-                >
-                    Agregar <FontAwesomeIcon icon={faBagShopping}/>
-                </button>
+                <Link to={`/products/${id}`} className="card-button">
+                    Ver producto
+                </Link>
             </div>
         </div>
     );
