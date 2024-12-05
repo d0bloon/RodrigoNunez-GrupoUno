@@ -3,8 +3,7 @@
     justify-content: center;
     flex-wrap: wrap; /* Permite que las imágenes se ajusten en varias filas si es necesario */
     gap: 30px; /* Espacio entre las imágenes */
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .link{

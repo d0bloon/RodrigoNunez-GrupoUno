@@ -6,8 +6,9 @@ const Home = () => {
     return (
         <div>
             <Carousel/>
-            <h3>Marcas Destacadas</h3>
+            <h3>MARCAS DESTACADAS</h3>
             <BrandsPage/>
+            <h3>RECOMENDADAS PARA TI</h3>
             <ProductsPage/>
         </div>
     )

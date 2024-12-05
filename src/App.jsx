@@ -18,6 +18,7 @@ import ReleasesPage from "./components/Releases/Releases.jsx";
 import ItemDetail from "./components/ItemDetail/ItemDetail.jsx";
 import ProductsCategory from "./components/Category/Category.jsx";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx";
+import NotFound from './components/NotFound/NotFound';
 import useBag from "./UseBag/useBag";
 import { getCartFromSessionStorage } from './utils/sessionStorage';
 
@@ -50,6 +51,8 @@ function App() {
                         <Route path='/category/:categoryId' element={<ProductsCategory />} />
                         <Route path='/products/:productId' element={<ItemDetail/>} />
                         <Route path='/ultimos_lanzamientos' element={<ReleasesPage/>}/>
+                        <Route path='/not-found' element={<NotFound />} />
+                        <Route path='*' element={<NotFound/>}/>
                     </Routes>
                 </div>
                 <Footer/>

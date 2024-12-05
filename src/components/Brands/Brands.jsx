@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import MisImagenes from "../Imagenes/Imagenes.jsx";
 
 export default function BrandsPage() {
