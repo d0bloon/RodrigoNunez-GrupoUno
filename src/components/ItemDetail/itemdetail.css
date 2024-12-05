@@ -1,131 +1,129 @@
 .container-items {
     margin: 0 auto;
-    max-width: 1170px;
+    max-width: 1200px;
+    padding: 20px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 .img-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .product-name {
-    display: flex;
-    font-size: 30px;
-    font-weight: normal;
-    justify-content: left;
-}
-
-.sizes-list {
-    list-style-type: none;
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    padding: 0;
-}
-
-.size-item {
-    margin: 0 10px 0 10px;
-    font-size: 20px;
-}
-
-.size-button {
-    margin-top:5px;
-    border: 1px solid;
-    width: 100px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-    cursor: pointer;
-    background-color: transparent;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-.size-button:hover {
-    color: white;
-    background-color: #D03F30;
-    border-color: black;
-}
-
-.stock {
-    font-size: 20px;
-    margin: 20px 0;
-    font-weight: bold;
-}
-
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .content-price {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.quantity-button {
-    background-color: white;
-    border-radius: 0;
-    width: 50px;
-    border: none;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.quantity-button:hover {
-    color: #D03F30;
-}
-
-.quantity-display {
-    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .price {
-    font-size: 20px;
-    margin: 20px 0;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #D03F30;
 }
 
-.total-price {
-    font-size: 20px;
-    margin: 20px 0;
+.stock {
+    font-size: 1rem;
+    color: #777;
 }
 
-.buy-button {
-    background-color: #171e27;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 5px 20px;
+.sizes-section, .quantity-section {
+    margin-bottom: 20px;
+}
+
+.sizes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.size-item {
+    margin: 0;
+}
+
+.size-button {
+    border: 1px solid #ddd;
+    padding: 10px;
     cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.buy-button:hover {
-    background-color: #172625;
+.size-button.selected,
+.size-button:hover {
+    background-color: #D03F30;
+    color: white;
+    border-color: #D03F30;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quantity-button:hover {
+    background-color: #D03F30;
+    color: white;
+}
+
+.quantity-display {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .bag-button {
-    margin: 10px;
     background-color: #171e27;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 5px 20px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .bag-button:hover {
@@ -134,48 +132,36 @@
 
 .divider {
     border: none;
-    border-top: 1px solid gray;
-    width: 100%;
-    margin: 0 auto;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
 }
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
-        padding-bottom: 10px;
-    }
-
-    .img-container {
-        padding-right: 0;
     }
 
     .product-name {
-        font-size: 30px;
+        font-size: 1.5rem;
     }
 
-    .product-description, .stock, .price, .total-price {
-        font-size: 24px;
+    .price {
+        font-size: 1.25rem;
     }
 
     .quantity-controls {
-        display: flex;
-        align-items: center;
         justify-content: center;
-        height: 30px;
     }
 
     .quantity-button {
-        width: 30px;
+        width: 40px;
     }
 
     .quantity-display {
-        width: 30px;
-    }
-
-    .size-item {
-        margin: 5px;
+        font-size: 1.25rem;
     }
 
     .size-button {
-        width: 90px;
+        width: 100px;
     }
 }

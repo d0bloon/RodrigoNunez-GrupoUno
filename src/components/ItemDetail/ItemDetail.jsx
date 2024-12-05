@@ -12,10 +12,8 @@ export default function ItemDetail() {
         return price.toLocaleString('es-CL');
     };
 
-    // SETEO EL LOADING EN TRUE
     const [loading, setLoading] = useState(true);
 
-    // CARGO LA DATA DE LA MOCK
     useEffect(() => {
         getProductById(productId).then((data) => {
             setProduct(data);
@@ -23,13 +21,9 @@ export default function ItemDetail() {
         });
     }, [productId]);
 
-    // ESTADO PARA LA CANTIDAD
     const [quantity, setQuantity] = useState(1);
-
-    // ESTADO PARA LA TALLA SELECCIONADA
     const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : null);
 
-    // FUNCIONES PARA INCREMENTAR Y DECREMENTAR
     const decrementQuantity = () => {
         if (quantity > 1) {
             setQuantity(quantity - 1);
@@ -42,7 +36,6 @@ export default function ItemDetail() {
         }
     };
 
-    // Agregar al carrito usando Zustand
     const addToCart = useBag(state => state.addToCart);
 
     if (loading) {
@@ -63,14 +56,13 @@ export default function ItemDetail() {
                 <div className="img-container">
                     <img src={product.img} alt="Imagen del producto" className="product-img" />
                 </div>
-                <div>
+                <div className="details-container">
                     <h1 className="product-name">{product.name} / {product.colorway}</h1>
                     <div className="content-price">
                         <p className="price">${formatPrice(product.price)}</p>
                         <p className="stock">Stock: {product.stock}</p>
                     </div>
-                    <div>
-                        <hr className="divider"/>
+                    <div className="sizes-section">
                         <h3>Tallas disponibles:</h3>
                         <ul className="sizes-list">
                             {product.sizes.map((size, index) => (
@@ -85,24 +77,22 @@ export default function ItemDetail() {
                             ))}
                         </ul>
                     </div>
-                    <hr className="divider"/>
-                    <div className="quantity-controls">
-                        <button onClick={decrementQuantity} className="quantity-button">-</button>
-                        <p className="quantity-display">{quantity}</p>
-                        <button onClick={incrementQuantity} className="quantity-button">+</button>
+                    <div className="quantity-section">
+                        <h3>Cantidad:</h3>
+                        <div className="quantity-controls">
+                            <button onClick={decrementQuantity} className="quantity-button">-</button>
+                            <p className="quantity-display">{quantity}</p>
+                            <button onClick={incrementQuantity} className="quantity-button">+</button>
+                        </div>
                     </div>
-                    <button
-                        className="buy-button"
-                        onClick={() => addToCart({ ...product, quantity, selectedSize })}
-                    >
-                        Comprar
-                    </button>
-                    <button
-                        className="bag-button"
-                        onClick={() => addToCart({ ...product, quantity, selectedSize })}
-                    >
-                        Agregar a la bolsa
-                    </button>
+                    <div className="buttons-container">
+                        <button
+                            className="bag-button"
+                            onClick={() => addToCart({ ...product, quantity, selectedSize })}
+                        >
+                            Agregar a la bolsa
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
