@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { saveCartToSessionStorage, getCartFromSessionStorage } from '../utils/sessionStorage';
+import { saveCartToSessionStorage, getCartFromSessionStorage } from '../utils/SessionStorage';
 
 const useBag = create((set) => ({
     cart: getCartFromSessionStorage(), // Recuperar el carrito desde sessionStorage al inicio

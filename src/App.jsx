@@ -19,8 +19,8 @@ import ItemDetail from "./components/ItemDetail/ItemDetail.jsx";
 import ProductsCategory from "./components/Category/Category.jsx";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx";
 import NotFound from './components/NotFound/NotFound';
-import useBag from "./UseBag/useBag";
-import { getCartFromSessionStorage } from './utils/sessionStorage';
+import useBag from "./UseBag/UseBag";
+import { getCartFromSessionStorage } from './utils/SessionStorage';
 
 function App() {
     const setCart = useBag(state => state.setCart);
