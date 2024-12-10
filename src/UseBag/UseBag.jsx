@@ -8,13 +8,27 @@ const useBag = create((set) => ({
         const existingItem = state.cart.find(cartItem => cartItem.id === item.id && cartItem.selectedSize === item.selectedSize);
         let newCart;
         if (existingItem) {
-            newCart = state.cart.map(cartItem =>
-                cartItem.id === item.id && cartItem.selectedSize === item.selectedSize
-                    ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
-                    : cartItem
-            );
+            const updatedQuantity = existingItem.quantity + item.quantity;
+            if (updatedQuantity <= item.stock) {
+                newCart = state.cart.map(cartItem =>
+                    cartItem.id === item.id && cartItem.selectedSize === item.selectedSize
+                        ? { ...cartItem, quantity: updatedQuantity }
+                        : cartItem
+                );
+            } else {
+                // Respeta el stock
+                newCart = state.cart.map(cartItem =>
+                    cartItem.id === item.id && cartItem.selectedSize === item.selectedSize
+                        ? { ...cartItem, quantity: item.stock }
+                        : cartItem
+                );
+            }
         } else {
-            newCart = [...state.cart, { ...item }];
+            if (item.quantity <= item.stock) {
+                newCart = [...state.cart, { ...item }];
+            } else {
+                newCart = [...state.cart, { ...item, quantity: item.stock }];
+            }
         }
         const newTotal = newCart.reduce((acc, cartItem) => acc + (cartItem.price * cartItem.quantity), 0);
         saveCartToSessionStorage(newCart); // Guardar el carrito actualizado en sessionStorage
@@ -43,17 +57,21 @@ const useBag = create((set) => ({
         };
     }),
     incrementQuantity: (item) => set((state) => {
-        const newCart = state.cart.map(cartItem =>
-            cartItem.id === item.id && cartItem.selectedSize === item.selectedSize
-                ? { ...cartItem, quantity: cartItem.quantity + 1 }
-                : cartItem
-        );
-        const newTotal = newCart.reduce((acc, cartItem) => acc + (cartItem.price * cartItem.quantity), 0);
-        saveCartToSessionStorage(newCart); // Guardar el carrito actualizado en sessionStorage
-        return {
-            cart: newCart,
-            total: newTotal
-        };
+        const existingItem = state.cart.find(cartItem => cartItem.id === item.id && cartItem.selectedSize === item.selectedSize);
+        if (existingItem && existingItem.quantity < item.stock) {
+            const newCart = state.cart.map(cartItem =>
+                cartItem.id === item.id && cartItem.selectedSize === item.selectedSize
+                    ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                    : cartItem
+            );
+            const newTotal = newCart.reduce((acc, cartItem) => acc + (cartItem.price * cartItem.quantity), 0);
+            saveCartToSessionStorage(newCart); // Guardar el carrito actualizado en sessionStorage
+            return {
+                cart: newCart,
+                total: newTotal
+            };
+        }
+        return state; // No hacer nada si se supera el stock
     }),
     decrementQuantity: (item) => set((state) => {
         const newCart = state.cart.map(cartItem =>
