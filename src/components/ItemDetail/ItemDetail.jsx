@@ -79,19 +79,19 @@ export default function ItemDetail() {
                     </div>
                     <div className="quantity-section">
                         <h3>Cantidad:</h3>
-                        <div className="quantity-controls">
-                            <button onClick={decrementQuantity} className="quantity-button">-</button>
-                            <p className="quantity-display">{quantity}</p>
-                            <button onClick={incrementQuantity} className="quantity-button">+</button>
+                        <div className="quantity-and-button">
+                            <div className="quantity-controls-butt">
+                                <button onClick={decrementQuantity} className="quantity-button-sub">-</button>
+                                <p className="quantity-display">{quantity}</p>
+                                <button onClick={incrementQuantity} className="quantity-button-add">+</button>
+                            </div>
+                            <button
+                                className="bag-button"
+                                onClick={() => addToCart({ ...product, quantity, selectedSize })}
+                            >
+                                Agregar a la bolsa
+                            </button>
                         </div>
-                    </div>
-                    <div className="buttons-container">
-                        <button
-                            className="bag-button"
-                            onClick={() => addToCart({ ...product, quantity, selectedSize })}
-                        >
-                            Agregar a la bolsa
-                        </button>
                     </div>
                 </div>
             </div>
